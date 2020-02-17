@@ -14,9 +14,9 @@ node{
         sh 'docker build -t swaraj1123/elevate-ss-api:latest .'
     }
     stage('Docker Image push'){
-        withDockerRegistry(credentialsId: '064af0a5-cde4-480c-8a14-87eabe184f04', toolName: 'docker') {
-            sh 'docker push swaraj1123/elevate-ss-api:latest'
-        }
+    withDockerRegistry(credentialsId: 'target', toolName: 'docker') {
+      sh 'docker push target/elevate-ss-api:latest'
+    }
     }
     stage('Kuberneetes Deploy'){
         kubernetesDeploy configs: 'Kubernetes/minikube/storeservice-api-deployment.yml', dockerCredentials: [[credentialsId: '064af0a5-cde4-480c-8a14-87eabe184f04']], enableConfigSubstitution: false, kubeConfig: [path: ''], kubeconfigId: 'e9d7ade7-21d9-4f64-ae80-891fd1b25713', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']

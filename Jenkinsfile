@@ -2,8 +2,7 @@ node{
     stage('Initialize'){
       def dockerHome = tool 'docker'
       def mavenHome = tool 'maven'
-      def javaHome = tool 'jdk8'
-      env.PATH = "${javaHome}/bin:${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
+      env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
     }
     stage('Checkout'){
         git credentialsId: 'afb29c50-d501-4c1d-8852-ce1a6193e8a6', url: 'https://github.com/Elevate2020/StoreService-API.git'

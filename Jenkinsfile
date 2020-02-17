@@ -11,11 +11,11 @@ node{
         sh 'mvn clean install'
     }
     stage('Build docker Image'){
-        sh 'docker build -t target/elevate-ss-api:latest .'
+        sh 'docker build -t targetelevate/elevate-ss-api:latest .'
     }
     stage('Docker Image push'){
     withDockerRegistry(credentialsId: 'target', toolName: 'docker') {
-      sh 'docker push target/elevate-ss-api:latest'
+      sh 'docker push targetelevate/elevate-ss-api:latest'
     }
     }
     stage('Kuberneetes Deploy'){

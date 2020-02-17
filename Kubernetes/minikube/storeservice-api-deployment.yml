@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storeservice-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: storeservice-api
+  template:
+    metadata:
+      labels:
+        app: storeservice-api
+    spec:
+      containers:
+      - image: swaraj1123/elevate-ss-api:latest
+        name: storeservice-api
+        imagePullPolicy: Always
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: storeservice-api-service
+spec:
+  selector:
+    app: storeservice-api
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: NodePort

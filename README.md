@@ -71,7 +71,7 @@
     java -jar target/storeservice-1.0.jar
 
     #Check if applicaiton is running
-    Open browser and enter url "http://localhost:8080/BLR/1"
+    Open browser and enter url "http://localhost:8081/BLR/1"
 ```
 
 ### 5. Let's set up a CI/CD pipeline using Vela/Drone and Kubernetes (minikube)

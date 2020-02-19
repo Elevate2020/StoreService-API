@@ -13,7 +13,7 @@ spec:
         app: storeservice-api
     spec:
       containers:
-      - image: swaraj1123/elevate-ss-api:latest
+      - image: targetelevate/elevate-ss-api:latest
         name: storeservice-api
         imagePullPolicy: Always
 

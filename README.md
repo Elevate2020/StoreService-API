@@ -17,20 +17,25 @@
     # docker install
     docker -v
 
-    # minikube install
-    docker -v
+    # check if minikube up and running
+    minikube ip
+    
+    #If minikube is not running, run the below command to start minikube
+    minukube start --vm-driver=hyperkit
+    minikube addons enable ingress
 
     # jenkins install
     brew start service jenkins
     Launch jenkins https://localhost:8080
+    
 
 ```
 
 ### 1. Fork the Code to your respective GHE organization
 
-#### Login into GHE - https://git.target.com
+#### Login into GHE - https://github.com
 
-#### Navigate to https://git.target.com/Dojo-TI/StoreService/tree/elevate-dryrun
+#### Navigate to https://github.com/Elevate2020/StoreService-API
 
 #### Click on Fork Option at top right of the application
 
@@ -48,7 +53,7 @@
     cd gitrepo
 
     # Clone the git repo
-    git clone git@git.target.com:<YourGitOrg>/StoreService.git
+    git clone https://github.com:<YourGitOrg>/StoreService.git
 
     # Navigate to StoreService folder
     cd StoreService
@@ -63,7 +68,7 @@
     mvn clean package
 
     # Start the application
-    java -jar target/storeservice-<gitorg>-1.0.jar
+    java -jar target/storeservice-1.0.jar
 
     #Check if applicaiton is running
     Open browser and enter url "http://localhost:8080/BLR/1"
@@ -77,7 +82,7 @@
     # Login to vela and add git-repo to dashboard
     login to localhost:8080/jenkins
 
-    # Verify if vela build is triggered and succeeded
+    # Verify if build is triggered and succeeded
 ```
 
 ### 6. Deploy code into Kubernetes/Minikube
